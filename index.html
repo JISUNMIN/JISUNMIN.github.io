@@ -5,7 +5,6 @@
     <title>sunmin Ji</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Font Awesome (GitHub 아이콘용) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -22,8 +21,8 @@
 
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
         line-height: 1.6;
         background: #ffffff;
         color: #111827;
@@ -41,7 +40,7 @@
         margin: 2px 0;
       }
 
-      /* HEADER (홍철님 포트폴리오 느낌) */
+      /* HEADER */
       header {
         position: sticky;
         top: 0;
@@ -93,6 +92,20 @@
 
       .nav-links a i {
         font-size: 18px;
+      }
+
+      /* 모바일 햄버거 버튼 */
+      .nav-toggle {
+        display: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0.25rem;
+      }
+
+      .nav-toggle i {
+        font-size: 1.3rem;
+        color: #111827;
       }
 
       @media (max-width: 640px) {
@@ -147,7 +160,7 @@
         font-size: 1.02rem;
       }
 
-      /* HERO (중앙 정렬, 큰 타이틀) */
+      /* HERO */
       .hero {
         margin: 4.5rem 0 3.5rem;
         border-bottom: 1px solid #e5e7eb;
@@ -204,7 +217,7 @@
         }
       }
 
-      /* PROJECTS (심플 카드, 얇은 언더라인) */
+      /* PROJECTS */
       .projects {
         list-style: none;
         padding: 0;
@@ -276,7 +289,6 @@
         line-height: 1.7;
       }
 
-      /* ABOUT, TECH 텍스트 */
       #about p {
         margin-top: 0.4rem;
         margin-bottom: 0.4rem;
@@ -289,7 +301,6 @@
         margin-bottom: 0.3rem;
       }
 
-      /* FOOTER 자리 (필요하면 사용) */
       footer {
         border-top: 1px solid #e5e7eb;
         padding-top: 1rem;
@@ -297,6 +308,56 @@
         font-size: 0.85rem;
         color: #6b7280;
         text-align: center;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding: 2.2rem 1.2rem 2.8rem;
+        }
+
+        .hero {
+          margin: 2.5rem 0 2.2rem;
+        }
+
+        h1 {
+          font-size: clamp(1.7rem, 6vw, 2.1rem);
+        }
+
+        .hero-sub {
+          font-size: 0.9rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .nav {
+          align-items: center;
+        }
+
+        .nav-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 56px; 
+          left: 0;
+          right: 0;
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0.75rem 1.5rem 1rem;
+          background: #ffffff;
+          border-bottom: 1px solid #e5e7eb;
+          gap: 0.6rem;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .nav-links a {
+          padding: 0.2rem 0;
+        }
       }
     </style>
   </head>
@@ -310,6 +371,11 @@
             <span class="under-bar">_</span>
           </div>
         </div>
+
+        <!-- 모바일용 햄버거 버튼 -->
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
 
         <div class="nav-links">
           <a href="#projects">Projects</a>
@@ -334,13 +400,13 @@
         <div class="hero-text">
           <h1>
             누구나 편하게 사용할 수 있는 경험을 고민하는
-            프론트엔드 개발자 
+            프론트엔드 개발자
             <span class="name-underline">지선민</span>
             입니다.
           </h1>
           <p class="hero-sub">
-            React와 JavaScript 동작 원리, CS 지식 등을 학습하며  
-            배운 내용을 Velog에 기록하고 있습니다.  
+            React와 JavaScript 동작 원리, CS 지식 등을 학습하며
+            배운 내용을 Velog에 기록하고 있습니다.
             단순한 사용을 넘어, 원리를 이해하고 성능까지 고려하는 개발자를 지향합니다.
           </p>
         </div>
@@ -444,7 +510,7 @@
 
         <ul class="activities-list">
           <li>
-            Velog에 150개 이상의 개발 관련 글 작성 (2025.04.29 ~ )  
+            Velog에 150개 이상의 개발 관련 글 작성 (2025.04.29 ~)
             – React, JavaScript, Next.js, 프론트엔드, 성능 최적화, 네트워크/HTTP,
             데이터베이스, 상태 관리 등 다양한 주제를 공부하며 정리
           </li>
@@ -463,8 +529,24 @@
     </main>
 
     <script>
-      document.getElementById("year").textContent =
-        new Date().getFullYear();
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      if (navToggle && navLinks) {
+        navToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("open");
+        });
+
+        navLinks.querySelectorAll("a[href^='#']").forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+          });
+        });
+      }
+      const yearEl = document.getElementById("year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
     </script>
   </body>
 </html>
