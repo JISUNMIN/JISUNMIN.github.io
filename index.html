@@ -119,9 +119,7 @@
       }
 
       main {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 3rem 1.5rem 3.5rem;
+         width: 100%;
       }
 
       section {
@@ -129,6 +127,12 @@
         scroll-margin-top: 5rem;
       }
 
+      .section-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+      
       /* TITLES */
       h1,
       h2,
@@ -495,27 +499,27 @@
 
       <!-- Projects -->
       <section id="projects">
+          <div class="section-inner">
         <h2>
           Projects <span class="under-bar">_</span>
         </h2>
 
         <ul class="projects" data-anchor="projects">
-          <!-- ✅ 대표 프로젝트: featured + 비율 변경 가능 -->
           <li class="project featured" style="--ratio: 16 / 9">
             <a href="#" class="project-content" target="_blank">
               <div class="project-meta">
-                <h3 class="project-title">AMOS</h3>
+                <h3 class="project-title">타이틀</h3>
                 <span class="project-underline"></span>
                 <p class="project-sub">Real-time Weather Monitoring System</p>
               </div>
 
               <div class="project-media">
-                <img src="assets/img/task-manager.gif" alt="AMOS 미리보기" />
+                <img src="assets/img/task-manager.gif" alt="미리보기" />
                 <div class="project-overlay">
                   <div>
                     <div class="overlay-title">AMOS</div>
                     <div class="overlay-desc">
-                      실시간 모니터링 · 대시보드 · 알림
+                      내용
                     </div>
                   </div>
                 </div>
@@ -562,7 +566,7 @@
                   <div>
                     <div class="overlay-title">Project 3</div>
                     <div class="overlay-desc">
-                      hover 시 타이틀/설명 표시
+                      설명
                     </div>
                   </div>
                 </div>
@@ -592,6 +596,7 @@
             </a>
           </li>
         </ul>
+      </div>
       </section>
 
       <!-- About -->
