@@ -66,6 +66,8 @@
                 font-weight: 700;
                 display: flex;
                 align-items: center;
+                transition: transform 1s ease, margin 1s ease;
+                will-change: transform;
             }
 
             .under-bar {
@@ -108,6 +110,9 @@
             }
 
             @media (max-width: 640px) {
+                .nav-title {
+                    transform: translateX(45%);
+                }
                 .nav {
                     padding-inline: 1.1rem;
                 }
@@ -131,7 +136,6 @@
                 margin: 24px auto;
             }
 
-            /* TITLES */
             h1,
             h2,
             h3 {
@@ -182,6 +186,9 @@
             .name-underline {
                 position: relative;
                 font-weight: 700;
+            }
+            .name-underline:hover {
+                color: #2563eb;
             }
 
             .name-underline::after {
@@ -346,7 +353,6 @@
                 transition-delay: 0.12s;
             }
 
-            /* LISTS */
             .skills-list,
             .activities-list {
                 font-size: 0.94rem;
@@ -434,6 +440,18 @@
                     padding: 0.2rem 0;
                 }
             }
+
+            .reveal {
+                opacity: 0;
+                transform: translateY(14px);
+                transition: opacity 0.7s ease, transform 0.7s ease;
+                will-change: opacity, transform;
+            }
+
+            .reveal.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
         </style>
     </head>
 
@@ -472,7 +490,14 @@
                     <h1>
                         사용자의 흐름을 설계하는 프론트엔드 개발자
                         <br />
-                        <span class="name-underline">지선민</span>
+                        <a
+                            class="name-underline"
+                            href="https://github.com/JISUNMIN"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            지선민
+                        </a>
                         입니다.
                     </h1>
                     <p class="hero-sub">
@@ -564,7 +589,7 @@
 
             <!-- About -->
             <div class="section-wrapper">
-                <section id="about">
+                <section id="about" class="reveal">
                     <h2>About <span class="under-bar">_</span></h2>
                     <p>
                         서비스직에서 근무하며, 장기적으로 전문성을 쌓을 수 있는 직업에 대해 고민하게 되었습니다. 그
@@ -584,7 +609,7 @@
                 </section>
 
                 <!-- Tech -->
-                <section id="tech">
+                <section id="tech" class="reveal">
                     <h2>Tech <span class="under-bar">_</span></h2>
 
                     <div class="two-col">
@@ -615,7 +640,7 @@
                 </section>
 
                 <!-- Writing & Activities -->
-                <section id="activities">
+                <section id="activities" class="reveal">
                     <h2>Writing & Activities <span class="under-bar">_</span></h2>
 
                     <ul class="activities-list">
@@ -648,6 +673,25 @@
                     });
                 });
             }
+
+            const revealTargets = document.querySelectorAll("section.reveal");
+
+            const revealObserver = new IntersectionObserver(
+                (entries, obs) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+
+                        entry.target.classList.add("is-visible");
+                        obs.unobserve(entry.target);
+                    });
+                },
+                {
+                    threshold: 0.15,
+                    rootMargin: "0px 0px -10% 0px",
+                }
+            );
+
+            revealTargets.forEach((el) => revealObserver.observe(el));
         </script>
     </body>
 </html>
