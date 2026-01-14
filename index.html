@@ -29,6 +29,7 @@
                 --bg-2: #ef476f;
                 --bg-3: #ffef9f;
                 --bg-4: #f96e46;
+                --bg-5: #06d6a0;
             }
 
             * {
@@ -280,7 +281,7 @@
                 position: relative;
                 width: 100%;
                 aspect-ratio: var(--ratio, 16 / 10);
-                background: var(--card-bg, #0f172a);
+                background: var(--card-bg, #04070b);
 
                 display: flex;
                 align-items: center;
@@ -525,7 +526,7 @@
                     <li class="project featured">
                         <a href="#" class="project-content" target="_blank">
                             <div class="project-media">
-                                <img src="assets/img/task-manager-main.gif" alt="미리보기" />
+                                <img src="assets/img/task-manager-sub.gif" alt="미리보기" />
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
                                         <div class="overlay-title">타이틀</div>
@@ -538,9 +539,9 @@
                     </li>
 
                     <li class="project">
-                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-1)">
+                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-5)">
                             <div class="project-media">
-                                <img src="assets/img/image.jpg" alt="Task Manager 미리보기" />
+                                <img src="assets/img/task-manager-main.gif" alt="Task Manager 미리보기" />
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
                                         <div class="overlay-title">타이틀</div>
@@ -565,10 +566,10 @@
                         </a>
                     </li>
 
-                    <li class="project" style="--card-bg: var(--bg-3)">
-                        <a href="#" class="project-content" target="_blank">
+                    <li class="project featured">
+                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-1)">
                             <div class="project-media">
-                                <img src="assets/img/image.jpg" alt="Project 3 미리보기" />
+                                <img src="assets/img/task-manager-sub.gif" alt="미리보기" />
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
                                         <div class="overlay-title">타이틀</div>
@@ -580,12 +581,25 @@
                         </a>
                     </li>
 
-                    <li class="project" style="--card-bg: var(--bg-4)">
-                        <a href="#" class="project-content" target="_blank">
+                    <li class="project">
+                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-3)">
                             <div class="project-media">
-                                <img src="assets/img/image.jpg" alt="Project 4 미리보기" />
+                                <img src="assets/img/task-manager-main.gif" alt="Task Manager 미리보기" />
                                 <div class="project-overlay">
-                                    <div>
+                                    <div class="overlay-inner">
+                                        <div class="overlay-title">타이틀</div>
+                                        <span class="overlay-underline"></span>
+                                        <div class="overlay-desc">내용</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-4)">
+                            <div class="project-media">
+                                <img src="assets/img/image.jpg" alt="Task Manager 미리보기" />
+                                <div class="project-overlay">
+                                    <div class="overlay-inner">
                                         <div class="overlay-title">타이틀</div>
                                         <span class="overlay-underline"></span>
                                         <div class="overlay-desc">내용</div>
