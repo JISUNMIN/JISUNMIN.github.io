@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
@@ -95,7 +95,9 @@
 
             .nav-links a {
                 color: #1f2937;
-                transition: color 0.15s ease-out, border-color 0.15s ease-out;
+                transition:
+                    color 0.15s ease-out,
+                    border-color 0.15s ease-out;
             }
             .nav-links a:hover {
                 color: #2563eb;
@@ -290,10 +292,12 @@
                 overflow: hidden;
             }
 
-            .project-media img {
+            .project-media img,
+            .project-media video {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
+                display: block;
             }
 
             .project-overlay {
@@ -332,7 +336,9 @@
             .overlay-inner {
                 transform: translateY(10px);
                 opacity: 0;
-                transition: transform 0.35s ease-out, opacity 0.35s ease-out;
+                transition:
+                    transform 0.35s ease-out,
+                    opacity 0.35s ease-out;
             }
 
             .overlay-underline {
@@ -360,7 +366,9 @@
                 font-size: 0.95rem;
                 opacity: 0;
                 transform: translateY(6px);
-                transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+                transition:
+                    opacity 0.35s ease-out,
+                    transform 0.35s ease-out;
                 transition-delay: 0.12s;
             }
 
@@ -455,13 +463,43 @@
             .reveal {
                 opacity: 0;
                 transform: translateY(14px);
-                transition: opacity 0.7s ease, transform 0.7s ease;
+                transition:
+                    opacity 0.7s ease,
+                    transform 0.7s ease;
                 will-change: opacity, transform;
             }
 
             .reveal.is-visible {
                 opacity: 1;
                 transform: translateY(0);
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 9999;
+                padding-top: 50px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                text-align: center;
+            }
+
+            .modal-content-img {
+                max-width: 90%;
+                max-height: 80vh;
+                border-radius: 12px;
+            }
+
+            .close {
+                position: absolute;
+                top: 20px;
+                right: 40px;
+                color: white;
+                font-size: 40px;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -524,14 +562,23 @@
 
                 <ul class="projects" data-anchor="projects">
                     <li class="project featured">
-                        <a href="#" class="project-content" target="_blank">
+                        <!-- 첫 번째 -->
+                        <a href="https://github.com/JISUNMIN/task-manager" class="project-content" target="_blank">
                             <div class="project-media">
-                                <img src="assets/img/task-manager-sub.gif" alt="미리보기" />
+                                <img src="assets/img/task-manager-sub.gif" alt="Squirrel Board 미리보기" />
+
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
-                                        <div class="overlay-title">타이틀</div>
+                                        <div class="overlay-title">Squirrel Board – Kanban Project Manager</div>
                                         <span class="overlay-underline"></span>
-                                        <div class="overlay-desc">내용</div>
+                                        <div class="overlay-desc">
+                                            Next.js 15 · TypeScript · Prisma/Supabase · React Query · Zustand
+                                            <br />
+                                            칸반 보드 기반 협업형 프로젝트/Task 관리 도구 구현 (DND · 다크모드 · 상세
+                                            패널)
+                                            <br />
+                                            클릭 시 GitHub 저장소에서 전체 코드를 확인할 수 있습니다.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -539,44 +586,86 @@
                     </li>
 
                     <li class="project">
-                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-5)">
+                        <!-- 두 번째 -->
+                        <a
+                            href="#"
+                            class="project-content"
+                            onclick="
+                                openModal('assets/img/task-manager-main.gif');
+                                return false;
+                            "
+                            target="_blank"
+                            style="--card-bg: var(--bg-5)"
+                        >
                             <div class="project-media">
-                                <img src="assets/img/task-manager-main.gif" alt="Task Manager 미리보기" />
+                                <img src="assets/img/task-manager-main.gif" alt="Squirrel Board 데모 미리보기" />
+
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
-                                        <div class="overlay-title">타이틀</div>
+                                        <div class="overlay-title">Squirrel Board – Demo Preview</div>
                                         <span class="overlay-underline"></span>
-                                        <div class="overlay-desc">내용</div>
+                                        <div class="overlay-desc">
+                                            프로젝트 리스트/필터 · 진행률 · D-day 등 핵심 UI 흐름 데모
+                                            <br />
+                                            클릭 시 확대된 화면으로 확인 가능합니다.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </a>
 
-                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-2)">
+                        <!-- 세 번째 -->
+                        <a
+                            href="#"
+                            class="project-content"
+                            onclick="
+                                openModal('assets/img/task-manager-mobile.gif');
+                                return false;
+                            "
+                            target="_blank"
+                            style="--card-bg: var(--bg-2)"
+                        >
                             <div class="project-media">
-                                <img src="assets/img/task-manager-mobile.gif" alt="Task Manager 미리보기" />
+                                <img src="assets/img/task-manager-mobile.gif" alt="Squirrel Board 모바일 미리보기" />
+
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
-                                        <div class="overlay-title">타이틀</div>
+                                        <div class="overlay-title">Squirrel Board – Mobile View</div>
                                         <span class="overlay-underline"></span>
-                                        <div class="overlay-desc">내용</div>
+                                        <div class="overlay-desc">
+                                            TailwindCSS 기반 반응형 레이아웃 및 모바일 UX 최적화
+                                            <br />
+                                            클릭 시 확대된 화면으로 확인 가능합니다.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </li>
-
                     <li class="project featured">
-                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-1)">
+                        <!-- 첫 번째 -->
+                        <a
+                            href="https://github.com/JISUNMIN/shop-app"
+                            class="project-content"
+                            target="_blank"
+                            style="--card-bg: var(--bg-1)"
+                        >
                             <div class="project-media">
-                               <video autoplay loop muted playsinline>
-                                  <source src="assets/img/shop-app-sub.mp4" type="video/mp4">
+                                <video autoplay loop muted playsinline>
+                                    <source src="assets/img/shop-app-sub.mp4" type="video/mp4" />
                                 </video>
+
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
-                                        <div class="overlay-title">타이틀</div>
+                                        <div class="overlay-title">Robo Shop – E-commerce Web App</div>
                                         <span class="overlay-underline"></span>
-                                        <div class="overlay-desc">내용</div>
+                                        <div class="overlay-desc">
+                                            Next.js 15 · TypeScript · Prisma · React Query · NextAuth
+                                            <br />
+                                            OAuth 인증, 비로그인 장바구니 유지, 주문 상태 설계를 포함한 E-commerce 구현
+                                            <br />
+                                            GitHub 저장소에서 전체 코드를 확인할 수 있습니다.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -584,27 +673,53 @@
                     </li>
 
                     <li class="project">
-                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-3)">
+                        <!-- 두 번째 -->
+                        <a
+                            href="#"
+                            class="project-content"
+                            onclick="
+                                openModal('assets/img/shop-app-main.gif');
+                                return false;
+                            "
+                            style="--card-bg: var(--bg-3)"
+                        >
                             <div class="project-media">
                                 <img src="assets/img/shop-app-main.gif" alt="Robo Shop 미리보기" />
+
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
-                                        <div class="overlay-title">타이틀</div>
+                                        <div class="overlay-title">Robo Shop – Demo Preview</div>
                                         <span class="overlay-underline"></span>
-                                        <div class="overlay-desc">내용</div>
+                                        <div class="overlay-desc">
+                                            상품 탐색부터 주문 완료까지의 사용자 플로우 데모<br />
+                                            클릭 시 확대된 화면으로 확인 가능합니다.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </a>
 
-                        <a href="#" class="project-content" target="_blank" style="--card-bg: var(--bg-4)">
+                        <!-- 세 번째 -->
+                        <a
+                            href="#"
+                            class="project-content"
+                            onclick="
+                                openModal('assets/img/shop-app-mobile.gif');
+                                return false;
+                            "
+                            style="--card-bg: var(--bg-4)"
+                        >
                             <div class="project-media">
                                 <img src="assets/img/shop-app-mobile.gif" alt="Task Manager 미리보기" />
+
                                 <div class="project-overlay">
                                     <div class="overlay-inner">
-                                        <div class="overlay-title">타이틀</div>
+                                        <div class="overlay-title">Robo Shop – Mobile View</div>
                                         <span class="overlay-underline"></span>
-                                        <div class="overlay-desc">내용</div>
+                                        <div class="overlay-desc">
+                                            TailwindCSS 기반 반응형 레이아웃 및 모바일 UX 최적화 <br />클릭 시 확대된
+                                            화면으로 확인 가능합니다.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -684,6 +799,11 @@
             </div>
         </main>
 
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content-img" id="modalImage" />
+        </div>
+
         <script>
             const navToggle = document.querySelector(".nav-toggle");
             const navLinks = document.querySelector(".nav-links");
@@ -714,10 +834,22 @@
                 {
                     threshold: 0.15,
                     rootMargin: "0px 0px -10% 0px",
-                }
+                },
             );
 
             revealTargets.forEach((el) => revealObserver.observe(el));
+
+            function openModal(src) {
+                const modal = document.getElementById("imageModal");
+                const modalImg = document.getElementById("modalImage");
+
+                modal.style.display = "block";
+                modalImg.src = src;
+            }
+
+            function closeModal() {
+                document.getElementById("imageModal").style.display = "none";
+            }
         </script>
     </body>
 </html>
