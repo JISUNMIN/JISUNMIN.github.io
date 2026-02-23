@@ -501,6 +501,15 @@
                 font-size: 40px;
                 cursor: pointer;
             }
+
+            .project-divider {
+                grid-column: 1 / -1;
+                height: 1px;
+                margin: 22px 0 30px;
+                opacity: 0.18;
+                background: currentColor;
+                list-style: none;
+            }
         </style>
     </head>
 
@@ -642,6 +651,7 @@
                             </div>
                         </a>
                     </li>
+                    <li class="project-divider" aria-hidden="true"></li>
                     <li class="project featured">
                         <!-- 첫 번째 -->
                         <a
@@ -664,7 +674,7 @@
                                             <br />
                                             OAuth 인증, 비로그인 장바구니 유지, 주문 상태 설계를 포함한 E-commerce 구현
                                             <br />
-                                            GitHub 저장소에서 전체 코드를 확인할 수 있습니다.
+                                            클릭 시 GitHub 저장소에서 전체 코드를 확인할 수 있습니다.
                                         </div>
                                     </div>
                                 </div>
