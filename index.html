@@ -451,6 +451,25 @@
       text-align: center;
     }
 
+    .professional-card + .professional-card {
+      margin-top: 1.2rem;
+    }
+    
+    .professional-media-list {
+      display: grid;
+      gap: 0.7rem;
+      padding: 0.8rem;
+      background: #f3f4f6;
+    }
+    
+    .professional-media-list img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      object-fit: contain;
+    }
+
     @media (max-width: 900px) {
       .projects {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -595,113 +614,125 @@
   </section>
 
   <div class="section-wrapper">
-    <section id="professional" class="reveal">
-     <section id="professional" class="reveal">
-  <h2>Professional <span class="under-bar">_</span></h2>
-
-  <div class="professional-card">
-    <div class="professional-content">
-      <div class="professional-eyebrow">Company Project · ZENTROPY</div>
-
-      <h3>Mobility Asset Management Platform</h3>
-
-      <p class="professional-desc">
-        모빌리티 자산 관리 서비스를 위한 사내 운영 플랫폼의 UI 개선,
-        검색 UX 표준화, 글로벌 대응, 운영 안정성 개선을 담당했습니다.
-      </p>
-
-      <ul class="professional-list">
-        <li>운영 현황 통합 대시보드 설계 및 데이터 시각화 화면 구현</li>
-        <li>검색 및 필터 UX 공통 컴포넌트 구축으로 화면 간 일관성 확보</li>
-        <li>i18n 전면 적용 및 레거시 코드 리팩토링</li>
-        <li>LogRocket · Sentry 기반 사용자 세션 및 오류 추적 체계 구축</li>
-        <li>Codex · ChatGPT 활용 코드 분석, 리팩토링 및 문서 작성 지원</li>
-      </ul>
-
-      <div class="professional-tags">
-        <span>React</span>
-        <span>TypeScript</span>
-        <span>React Query</span>
-        <span>Zustand</span>
-        <span>i18n</span>
-        <span>Sentry</span>
-        <span>LogRocket</span>
-        <span>Codex</span>
+   <section id="professional" class="reveal">
+    <h2>Professional <span class="under-bar">_</span></h2>
+  
+    <div class="professional-card">
+      <div class="professional-content">
+        <div class="professional-eyebrow">Company Project · ZENTROPY</div>
+  
+        <h3>Mobility Asset Management Platform</h3>
+  
+        <p class="professional-desc">
+          모빌리티 자산 관리 서비스를 위한 사내 운영 플랫폼의 UI 개선,
+          검색 UX 표준화, 글로벌 대응, 운영 안정성 개선을 담당했습니다.
+        </p>
+  
+        <ul class="professional-list">
+          <li>운영 현황 통합 대시보드 설계 및 데이터 시각화 화면 구현</li>
+          <li>검색 및 필터 UX 공통 컴포넌트 구축으로 화면 간 일관성 확보</li>
+          <li>i18n 전면 적용 및 레거시 코드 리팩토링</li>
+          <li>LogRocket · Sentry 기반 사용자 세션 및 오류 추적 체계 구축</li>
+          <li>Codex · ChatGPT 활용 코드 분석, 리팩토링 및 문서 작성 지원</li>
+        </ul>
+  
+        <div class="professional-tags">
+          <span>React</span>
+          <span>TypeScript</span>
+          <span>React Query</span>
+          <span>Zustand</span>
+          <span>i18n</span>
+          <span>Sentry</span>
+          <span>LogRocket</span>
+          <span>Codex</span>
+        </div>
+      </div>
+  
+      <div class="professional-media">
+        <img
+          src="assets/img/mobility-dashboard.png"
+          alt="Mobility asset management dashboard"
+          onerror="this.parentElement.style.display='none';"
+        />
       </div>
     </div>
-
-    <div class="professional-media">
-      <img
-        src="assets/img/mobility-dashboard.png"
-        alt="Mobility dashboard preview"
-        onerror="this.parentElement.style.display='none';"
-      />
-    </div>
-  </div>
-
-  <div class="professional-card">
-    <div class="professional-content">
-      <div class="professional-eyebrow">Company Project · TWIN</div>
-
-      <h3>Content & Operations Platforms</h3>
-
-      <p class="professional-desc">
-        콘텐츠 관리, 편성, 권한 관리 및 운영 대시보드 기능을 포함한
-        React · TypeScript 기반 Admin 플랫폼 개발
-      </p>
-
-      <ul class="professional-list">
-        <li>Atomic Design 기반 공통 UI 컴포넌트 시스템 구축</li>
-        <li>React Query 기반 서버 상태 관리 및 중복 요청 제거</li>
-        <li>Zustand 기반 클라이언트 상태 구조 개선</li>
-        <li>TanStack Table 기반 필터 · 정렬 · 페이지네이션 UI 구현</li>
-        <li>ApexCharts 기반 운영 대시보드 및 데이터 시각화 구현</li>
-        <li>PR 리뷰 문화 정착 및 브랜치 전략 수립</li>
-      </ul>
-
-      <div class="professional-tags">
-        <span>React</span>
-        <span>TypeScript</span>
-        <span>React Query</span>
-        <span>Zustand</span>
-        <span>TanStack Table</span>
-        <span>ApexCharts</span>
-        <span>Storybook</span>
+  
+    <div class="professional-card">
+      <div class="professional-content">
+        <div class="professional-eyebrow">Company Project · TWIN</div>
+  
+        <h3>Content Management & Operations Platform</h3>
+  
+        <p class="professional-desc">
+          콘텐츠 등록, 편성, 다국어 관리 및 배너 운영 기능을 포함한
+          React · TypeScript 기반 Admin 플랫폼을 개발했습니다.
+        </p>
+  
+        <ul class="professional-list">
+          <li>Atomic Design 기반 공통 UI 컴포넌트 시스템 구축</li>
+          <li>React Query 기반 서버 상태 관리 및 중복 요청 제거</li>
+          <li>Zustand 기반 클라이언트 상태 구조 개선</li>
+          <li>콘텐츠 편성, Shelf 관리, 배너 운영 Admin UI 구현</li>
+          <li>TanStack Table 기반 필터 · 정렬 · 페이지네이션 UI 구현</li>
+          <li>ApexCharts 기반 운영 대시보드 및 데이터 시각화 구현</li>
+        </ul>
+  
+        <div class="professional-tags">
+          <span>React</span>
+          <span>TypeScript</span>
+          <span>React Query</span>
+          <span>Zustand</span>
+          <span>TanStack Table</span>
+          <span>ApexCharts</span>
+          <span>i18n</span>
+        </div>
+      </div>
+  
+      <div class="professional-media-list">
+        <img
+          src="assets/img/twin-banner-admin.png"
+          alt="Banner management admin"
+          onerror="this.style.display='none';"
+        />
+        <img
+          src="assets/img/twin-shelf-admin.png"
+          alt="Shelf content management admin"
+          onerror="this.style.display='none';"
+        />
       </div>
     </div>
-  </div>
-
-  <div class="professional-card">
-    <div class="professional-content">
-      <div class="professional-eyebrow">Company Project · FITT</div>
-
-<h3>Fitness & Membership Platform</h3>
-
-<p class="professional-desc">
-피트니스 B2C 서비스의 예약, 결제, 회원관리 및 운영 기능을 개발하며
-웹·모바일 서비스 운영과 글로벌 대응 기능을 담당했습니다.
-</p>
-
- <ul class="professional-list">
-  <li>예약 · 결제 · 스케줄 관리 기능 구현</li>
-  <li>회원관리 및 운영(Admin) 기능 개발</li>
-  <li>로그인 이후 결제 흐름 개선으로 사용자 이탈 감소</li>
-  <li>i18n 적용 및 글로벌 서비스 대응</li>
-  <li>Express · MySQL 기반 REST API 연동 및 데이터 처리</li>
-  <li>Firebase 기반 배포 및 운영 환경 구축</li>
-</ul>
-
-      <div class="professional-tags">
-  <span>Angular</span>
-  <span>JavaScript</span>
-  <span>Express</span>
-  <span>MySQL</span>
-  <span>Firebase</span>
-  <span>REST API</span>
-  <span>i18n</span>
+  
+    <div class="professional-card">
+      <div class="professional-content">
+        <div class="professional-eyebrow">Company Project · FITT</div>
+  
+        <h3>Fitness & Membership Platform</h3>
+  
+        <p class="professional-desc">
+          피트니스 B2C 서비스의 예약, 결제, 회원관리 및 운영 기능을 개발하며
+          웹·모바일 서비스 운영과 글로벌 대응 기능을 담당했습니다.
+        </p>
+  
+        <ul class="professional-list">
+          <li>예약 · 결제 · 스케줄 관리 기능 구현</li>
+          <li>회원관리 및 운영 Admin 기능 개발</li>
+          <li>로그인 이후 결제 흐름 개선으로 사용자 이탈 감소</li>
+          <li>i18n 적용 및 글로벌 서비스 대응</li>
+          <li>Express · MySQL 기반 REST API 연동 및 데이터 처리</li>
+          <li>Firebase 기반 배포 및 운영 환경 구축</li>
+        </ul>
+  
+        <div class="professional-tags">
+          <span>Angular</span>
+          <span>JavaScript</span>
+          <span>Express</span>
+          <span>MySQL</span>
+          <span>Firebase</span>
+          <span>REST API</span>
+          <span>i18n</span>
+        </div>
       </div>
     </div>
-  </div>
 </section>
   </div>
 
