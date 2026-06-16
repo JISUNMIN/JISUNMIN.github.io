@@ -250,6 +250,22 @@
       display: block;
     }
 
+    .professional-card-full {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .professional-full-image {
+      margin-top: 1.5rem;
+    }
+    
+    .professional-full-image img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
     .projects {
       list-style: none;
       padding: 0;
@@ -642,46 +658,45 @@
       </div>
     </div>
   
-    <div class="professional-card">
-      <div class="professional-content">
-        <div class="professional-eyebrow">Company Project · TWIN</div>
+   <div class="professional-card professional-card-full">
+    <div class="professional-content">
+      <div class="professional-eyebrow">Company Project · TWIN</div>
   
-        <h3>Content Management & Operations Platform</h3>
+      <h3>Content Management & Operations Platform</h3>
   
-        <p class="professional-desc">
-          콘텐츠 등록, 편성, 다국어 관리 및 배너 운영 기능을 포함한
-          React · TypeScript 기반 Admin 플랫폼을 개발했습니다.
-        </p>
+      <p class="professional-desc">
+        콘텐츠 등록, 편성, 다국어 관리 및 배너 운영 기능을 포함한
+        React · TypeScript 기반 Admin 플랫폼을 개발했습니다.
+      </p>
   
-        <ul class="professional-list">
-          <li>Atomic Design 기반 공통 UI 컴포넌트 시스템 구축</li>
-          <li>React Query 기반 서버 상태 관리 및 중복 요청 제거</li>
-          <li>Zustand 기반 클라이언트 상태 구조 개선</li>
-          <li>콘텐츠 편성, Shelf 관리, 배너 운영 Admin UI 구현</li>
-          <li>TanStack Table 기반 필터 · 정렬 · 페이지네이션 UI 구현</li>
-          <li>ApexCharts 기반 운영 대시보드 및 데이터 시각화 구현</li>
-        </ul>
+      <ul class="professional-list">
+        <li>Atomic Design 기반 공통 UI 컴포넌트 시스템 구축</li>
+        <li>React Query 기반 서버 상태 관리 및 중복 요청 제거</li>
+        <li>Zustand 기반 클라이언트 상태 구조 개선</li>
+        <li>콘텐츠 편성, Shelf 관리, 배너 운영 Admin UI 구현</li>
+        <li>TanStack Table 기반 필터 · 정렬 · 페이지네이션 UI 구현</li>
+        <li>ApexCharts 기반 운영 대시보드 및 데이터 시각화 구현</li>
+      </ul>
   
-        <div class="professional-tags">
-          <span>React</span>
-          <span>TypeScript</span>
-          <span>React Query</span>
-          <span>Zustand</span>
-          <span>TanStack Table</span>
-          <span>ApexCharts</span>
-          <span>i18n</span>
-        </div>
+      <div class="professional-tags">
+        <span>React</span>
+        <span>TypeScript</span>
+        <span>React Query</span>
+        <span>Zustand</span>
+        <span>TanStack Table</span>
+        <span>ApexCharts</span>
+        <span>i18n</span>
       </div>
+    </div>
   
-      <div class="professional-media">
+    <div class="professional-full-image">
       <img
         src="assets/img/twin-admin.png"
-        alt="Content and banner management admin"
-        onerror="this.parentElement.style.display='none';"
+        alt="Content Management Admin"
       />
     </div>
-    </div>
-  
+  </div>
+    
     <div class="professional-card">
       <div class="professional-content">
         <div class="professional-eyebrow">Company Project · FITT</div>
