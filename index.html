@@ -455,21 +455,6 @@
       margin-top: 1.2rem;
     }
     
-    .professional-media-list {
-      display: grid;
-      gap: 0.7rem;
-      padding: 0.8rem;
-      background: #f3f4f6;
-    }
-    
-    .professional-media-list img {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      object-fit: contain;
-    }
-
     @media (max-width: 900px) {
       .projects {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -688,18 +673,13 @@
         </div>
       </div>
   
-      <div class="professional-media-list">
-        <img
-          src="assets/img/twin-banner-admin.png"
-          alt="Banner management admin"
-          onerror="this.style.display='none';"
-        />
-        <img
-          src="assets/img/twin-shelf-admin.png"
-          alt="Shelf content management admin"
-          onerror="this.style.display='none';"
-        />
-      </div>
+      <div class="professional-media">
+      <img
+        src="assets/img/twin-admin.png"
+        alt="Content and banner management admin"
+        onerror="this.parentElement.style.display='none';"
+      />
+    </div>
     </div>
   
     <div class="professional-card">
