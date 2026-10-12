@@ -133,9 +133,9 @@
 
     .hero {
       max-width: 960px;
-      margin: 4.5rem auto 3.5rem;
+      margin: 2.2rem auto 1.4rem;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 3rem;
+      padding-bottom: 1.3rem;
     }
 
     .hero-text {
@@ -429,6 +429,12 @@
       transform: translateY(0);
     }
 
+    /* The first, long Professional section must not stay invisible while scrolling. */
+    #professional.reveal {
+      opacity: 1;
+      transform: none;
+    }
+
     .modal {
       display: none;
       position: fixed;
@@ -505,8 +511,8 @@
       .nav-links.open { display: flex; }
 
       .hero {
-        margin-top: 3rem;
-        padding-bottom: 2.2rem;
+        margin-top: 1.8rem;
+        padding-bottom: 1.2rem;
       }
 
       .tech-grid {
@@ -1155,8 +1161,8 @@
       });
     },
     {
-      threshold: 0.15,
-      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.01,
+      rootMargin: "0px 0px 0px 0px",
     }
   );
 
