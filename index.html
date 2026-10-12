@@ -429,12 +429,6 @@
       transform: translateY(0);
     }
 
-    /* The first, long Professional section must not stay invisible while scrolling. */
-    #professional.reveal {
-      opacity: 1;
-      transform: none;
-    }
-
     .modal {
       display: none;
       position: fixed;
@@ -1161,8 +1155,8 @@
       });
     },
     {
-      threshold: 0.01,
-      rootMargin: "0px 0px 0px 0px",
+      threshold: 0,
+      rootMargin: "0px 0px 18% 0px",
     }
   );
 
