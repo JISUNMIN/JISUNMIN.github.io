@@ -419,9 +419,14 @@
     }
 
     .reveal {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-pending {
       opacity: 0;
       transform: translateY(14px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
     .reveal.is-visible {
@@ -1188,21 +1193,34 @@
 
   const revealTargets = document.querySelectorAll("section.reveal");
 
-  const revealObserver = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        obs.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0,
-      rootMargin: "0px 0px -8% 0px",
-    }
-  );
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  revealTargets.forEach((el) => revealObserver.observe(el));
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.remove("is-pending");
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0,
+        rootMargin: "0px 0px 120px 0px",
+      }
+    );
+
+    revealTargets.forEach((el) => {
+      // Keep initial content visible; animate only sections below the viewport.
+      if (el.getBoundingClientRect().top < window.innerHeight + 120) {
+        el.classList.add("is-visible");
+        return;
+      }
+      el.classList.add("is-pending");
+      revealObserver.observe(el);
+    });
+  }
 
   let lastModalTrigger = null;
   function openModal(src) {
