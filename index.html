@@ -624,6 +624,15 @@
       .reveal, .project-overlay, .overlay-inner { transition: none !important; transform: none !important; }
       html { scroll-behavior: auto; }
     }
+    /* Prevent section headings from overflowing narrow mobile screens. */
+    @media (max-width: 640px) {
+      h2 {
+        max-width: 100%;
+        font-size: clamp(1.4rem, 6.5vw, 2rem);
+        letter-spacing: 0.1em;
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
 
@@ -1188,7 +1197,7 @@
       });
     },
     {
-      threshold: 0.12,
+      threshold: 0,
       rootMargin: "0px 0px -8% 0px",
     }
   );
